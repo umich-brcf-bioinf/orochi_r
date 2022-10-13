@@ -4,6 +4,7 @@ RUN Rscript -e "\
     install.packages(c( \
         'ComplexUpset', \
         'devtools', \
+        'gamlss', \
         'GGally', \
         'ggfortify', \
         'ggpubr', \
@@ -19,7 +20,8 @@ RUN Rscript -e "\
         'roxygen2', \
         'statmod', \
         'testthat', \
-        'tidyverse'), ask = FALSE, update = FALSE); \
+        'tidyverse', \
+        'UpSetR'), ask = FALSE, update = FALSE); \
     BiocManager::install(c( \
         'BiocStyle', \
         'annotatr', \
@@ -41,6 +43,7 @@ RUN Rscript -e "\
         'limma', \
         'methylSig', \
         'minfi', \
+        'MLML2R', \
         'org.Dm.eg.db', \
         'org.Dr.eg.db', \
         'org.Gg.eg.db', \
