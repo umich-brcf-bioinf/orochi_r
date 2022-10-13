@@ -1,3 +1,9 @@
+# 0.2.0
+
+- Bioc 3.15
+- Add ComplexUpset, achilleasNP/IlluminaHumanMethylationEPICmanifest, and achilleasNP/IlluminaHumanMethylationEPICanno.ilm10b5.hg38
+- Use Bioc version of methylSig
+
 # 0.1.0
 
 - Start versioning

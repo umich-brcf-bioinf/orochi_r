@@ -1,7 +1,8 @@
-FROM bioconductor/bioconductor_docker:RELEASE_3_10
+FROM bioconductor/bioconductor_docker:RELEASE_3_15
 
 RUN Rscript -e "\
     install.packages(c( \
+        'ComplexUpset', \
         'devtools', \
         'GGally', \
         'ggfortify', \
@@ -18,7 +19,7 @@ RUN Rscript -e "\
         'roxygen2', \
         'statmod', \
         'testthat', \
-        'tidyverse'), ask = FALSE, update = TRUE); \
+        'tidyverse'), ask = FALSE, update = FALSE); \
     BiocManager::install(c( \
         'BiocStyle', \
         'annotatr', \
@@ -31,14 +32,14 @@ RUN Rscript -e "\
         'bsseq', \
         'chipenrich', \
         'DelayedArray', \
+        'DESeq2', \
         'edgeR', \
         'ENmix', \
         'FlowSorted.Blood.EPIC', \
         'FlowSorted.CordBlood.450k', \
         'GO.db', \
-        'IlluminaHumanMethylationEPICanno.ilm10b2.hg19', \
-        'IlluminaHumanMethylationEPICanno.ilm10b4.hg19', \
         'limma', \
+        'methylSig', \
         'minfi', \
         'org.Dm.eg.db', \
         'org.Dr.eg.db', \
@@ -47,11 +48,14 @@ RUN Rscript -e "\
         'org.Mm.eg.db', \
         'org.Rn.eg.db', \
         'rtracklayer', \
+        'sesame', \
         'TxDb.Dmelanogaster.UCSC.dm6.ensGene', \
         'TxDb.Drerio.UCSC.danRer11.refGene', \
         'TxDb.Ggallus.UCSC.galGal6.refGene', \
         'TxDb.Hsapiens.UCSC.hg19.knownGene', \
         'TxDb.Hsapiens.UCSC.hg38.knownGene', \
         'TxDb.Mmusculus.UCSC.mm10.knownGene', \
-        'TxDb.Rnorvegicus.UCSC.rn6.refGene'), ask = FALSE, update = TRUE); \
-    devtools::install_github('sartorlab/methylSig', dependencies = TRUE);"
+        'TxDb.Rnorvegicus.UCSC.rn6.refGene'), ask = FALSE, update = FALSE); \
+    devtools::install_github(c( \
+        'achilleasNP/IlluminaHumanMethylationEPICmanifest',\
+        'achilleasNP/IlluminaHumanMethylationEPICanno.ilm10b5.hg38'), dependencies = TRUE);"
