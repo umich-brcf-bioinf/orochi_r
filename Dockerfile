@@ -35,11 +35,13 @@ RUN Rscript -e "\
         'chipenrich', \
         'DelayedArray', \
         'DESeq2', \
+        'DMRcate', \
         'edgeR', \
         'ENmix', \
         'FlowSorted.Blood.EPIC', \
         'FlowSorted.CordBlood.450k', \
         'GO.db', \
+        'IlluminaHumanMethylation450kmanifest', \
         'limma', \
         'methylSig', \
         'minfi', \
