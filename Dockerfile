@@ -36,6 +36,7 @@ RUN Rscript -e "\
         'DelayedArray', \
         'DESeq2', \
         'DMRcate', \
+        'DMRcatedata', \
         'edgeR', \
         'ENmix', \
         'FlowSorted.Blood.EPIC', \
