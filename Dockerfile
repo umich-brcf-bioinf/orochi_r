@@ -1,5 +1,11 @@
 FROM bioconductor/bioconductor_docker:RELEASE_3_15
 
+ENV OMP_NUM_THREADS=1
+ENV OPENBLAS_NUM_THREADS=1
+
+RUN git clone https://github.com/bmbolstad/preprocessCore.git; \
+    R CMD INSTALL --configure-args="--disable-threading" preprocessCore/;
+
 RUN Rscript -e "\
     install.packages(c( \
         'ComplexUpset', \
