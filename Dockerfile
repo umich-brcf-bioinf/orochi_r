@@ -1,4 +1,4 @@
-FROM bioconductor/bioconductor_docker:RELEASE_3_17
+FROM bioconductor/bioconductor_docker:RELEASE_3_21-r-4.5.2
 
 ENV OMP_NUM_THREADS=1
 ENV OPENBLAS_NUM_THREADS=1
@@ -15,6 +15,7 @@ RUN Rscript -e "\
         'ggfortify', \
         'ggpubr', \
         'ggrepel', \
+        'ggalluvial', \
         'gplots', \
         'kableExtra', \
         'knitr', \
