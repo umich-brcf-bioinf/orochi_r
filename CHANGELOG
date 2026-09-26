@@ -1,3 +1,13 @@
+# 0.5.0
+
+- Bioc 3.23 (R 4.6.1)
+- Add e1071, pals, randomForest, and yaml, which 0.3.0_manual had and 0.4.0 did not
+- List all packages in packages.txt and install them with one BiocManager::install() call, which also installs the GitHub packages (replaces install.packages() and devtools::install_github())
+- Fail the build if any listed package doesn't load (check.R)
+- Pin CRAN packages to a dated Posit Package Manager snapshot (CRAN_SNAPSHOT in the Dockerfile)
+- Build preprocessCore from the Bioc 3.23 source package with threading disabled, instead of cloning its GitHub HEAD (the Bioc development version)
+- Record the installed package versions and R session in /opt/orochi_r, and upload them with each build as a workflow artifact
+
 # 0.4.0
 
 - Bioc 3.21

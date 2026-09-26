@@ -60,8 +60,27 @@ jobs:
           context: .
           file: Dockerfile
           push: ${{ github.event_name == 'push' }}
+          # Also load the image locally, to copy out its package record
+          load: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
+      # The build writes installed_packages.tsv and session_info.txt into /opt/orochi_r
+      - name: Copy package record from image
+        run: |
+          image="${{ fromJSON(steps.meta.outputs.json).tags[0] }}"
+          mkdir -p record
+          for f in installed_packages.tsv session_info.txt packages.txt; do
+            docker run --rm --entrypoint cat "$image" "/opt/orochi_r/$f" > "record/$f"
+          done
+          echo "Installed packages: $(( $(wc -l < record/installed_packages.tsv) - 1 ))" >> "$GITHUB_STEP_SUMMARY"
+          head -2 record/session_info.txt >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload package record
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: orochi_r-${{ steps.meta.outputs.version }}-packages
+          path: record/
 
       # Record which commit produced which image, so pipelines can pin by digest
       - name: Record image digest
