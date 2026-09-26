@@ -1,3 +1,10 @@
+# 0.3.0_manual
+
+- Reconstructed on 2026-09-26 from the layer history of umichbfxcore/orochi_r:0.3.0_manual, which was built by hand on 2023-07-22 from uncommitted changes to 0.3.0
+- Bioc 3.17
+- Install all packages with one BiocManager::install() call, with configure.args = '--disable-threading'
+- Add e1071, pals, randomForest, and yaml
+
 # 0.2.0
 
 - Bioc 3.15

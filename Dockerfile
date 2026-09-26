@@ -7,30 +7,9 @@ RUN git clone https://github.com/bmbolstad/preprocessCore.git; \
     R CMD INSTALL --configure-args="--disable-threading" preprocessCore/;
 
 RUN Rscript -e "\
-    install.packages(c( \
-        'ComplexUpset', \
-        'devtools', \
-        'gamlss', \
-        'GGally', \
-        'ggfortify', \
-        'ggpubr', \
-        'ggrepel', \
-        'gplots', \
-        'kableExtra', \
-        'knitr', \
-        'openxlsx', \
-        'optparse', \
-        'pheatmap', \
-        'RColorBrewer', \
-        'rmarkdown', \
-        'roxygen2', \
-        'statmod', \
-        'testthat', \
-        'tidyverse', \
-        'UpSetR'), ask = FALSE, update = FALSE); \
     BiocManager::install(c( \
-        'BiocStyle', \
         'annotatr', \
+        'BiocStyle', \
         'BSgenome.Hsapiens.UCSC.hg19', \
         'BSgenome.Hsapiens.UCSC.hg38', \
         'BSgenome.Mmusculus.UCSC.mm10', \
@@ -39,16 +18,27 @@ RUN Rscript -e "\
         'BSgenome.Ggallus.UCSC.galGal6', \
         'bsseq', \
         'chipenrich', \
+        'ComplexUpset', \
         'DelayedArray', \
         'DESeq2', \
+        'devtools', \
         'DMRcate', \
         'DMRcatedata', \
+        'e1071', \
         'edgeR', \
         'ENmix', \
         'FlowSorted.Blood.EPIC', \
         'FlowSorted.CordBlood.450k', \
+        'gamlss', \
+        'GGally', \
+        'ggfortify', \
+        'ggpubr', \
+        'ggrepel', \
+        'gplots', \
         'GO.db', \
         'IlluminaHumanMethylation450kmanifest', \
+        'kableExtra', \
+        'knitr', \
         'limma', \
         'methylSig', \
         'minfi', \
@@ -59,15 +49,28 @@ RUN Rscript -e "\
         'org.Hs.eg.db', \
         'org.Mm.eg.db', \
         'org.Rn.eg.db', \
+        'openxlsx', \
+        'optparse', \
+        'pals', \
+        'pheatmap', \
+        'randomForest', \
+        'RColorBrewer', \
+        'rmarkdown', \
+        'roxygen2', \
         'rtracklayer', \
         'sesame', \
+        'statmod', \
+        'testthat', \
+        'tidyverse', \
         'TxDb.Dmelanogaster.UCSC.dm6.ensGene', \
         'TxDb.Drerio.UCSC.danRer11.refGene', \
         'TxDb.Ggallus.UCSC.galGal6.refGene', \
         'TxDb.Hsapiens.UCSC.hg19.knownGene', \
         'TxDb.Hsapiens.UCSC.hg38.knownGene', \
         'TxDb.Mmusculus.UCSC.mm10.knownGene', \
-        'TxDb.Rnorvegicus.UCSC.rn6.refGene'), ask = FALSE, update = FALSE); \
+        'TxDb.Rnorvegicus.UCSC.rn6.refGene', \
+        'UpSetR', \
+        'yaml'), ask = FALSE, update = FALSE, configure.args = '--disable-threading'); \
     devtools::install_github(c( \
         'achilleasNP/IlluminaHumanMethylationEPICmanifest',\
         'achilleasNP/IlluminaHumanMethylationEPICanno.ilm10b5.hg38'), dependencies = TRUE);"
