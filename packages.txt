@@ -1,0 +1,76 @@
+# R packages installed in the image, one per line. BiocManager::install() takes
+# CRAN and Bioconductor names alike, and GitHub packages as user/repo.
+# check.R loads every package listed here and fails the build if any is missing.
+
+# CRAN
+ComplexUpset
+devtools
+e1071
+gamlss
+GGally
+ggalluvial
+ggfortify
+ggpubr
+ggrepel
+gplots
+kableExtra
+knitr
+openxlsx
+optparse
+pals
+pheatmap
+randomForest
+RColorBrewer
+rmarkdown
+roxygen2
+statmod
+testthat
+tidyverse
+UpSetR
+yaml
+
+# Bioconductor
+annotatr
+BiocStyle
+BSgenome.Dmelanogaster.UCSC.dm6
+BSgenome.Drerio.UCSC.danRer11
+BSgenome.Ggallus.UCSC.galGal6
+BSgenome.Hsapiens.UCSC.hg19
+BSgenome.Hsapiens.UCSC.hg38
+BSgenome.Mmusculus.UCSC.mm10
+bsseq
+chipenrich
+DelayedArray
+DESeq2
+DMRcate
+DMRcatedata
+edgeR
+ENmix
+FlowSorted.Blood.EPIC
+FlowSorted.CordBlood.450k
+GO.db
+IlluminaHumanMethylation450kmanifest
+limma
+methylSig
+minfi
+MLML2R
+org.Dm.eg.db
+org.Dr.eg.db
+org.Gg.eg.db
+org.Hs.eg.db
+org.Mm.eg.db
+org.Rn.eg.db
+preprocessCore
+rtracklayer
+sesame
+TxDb.Dmelanogaster.UCSC.dm6.ensGene
+TxDb.Drerio.UCSC.danRer11.refGene
+TxDb.Ggallus.UCSC.galGal6.refGene
+TxDb.Hsapiens.UCSC.hg19.knownGene
+TxDb.Hsapiens.UCSC.hg38.knownGene
+TxDb.Mmusculus.UCSC.mm10.knownGene
+TxDb.Rnorvegicus.UCSC.rn6.refGene
+
+# GitHub
+achilleasNP/IlluminaHumanMethylationEPICmanifest
+achilleasNP/IlluminaHumanMethylationEPICanno.ilm10b5.hg38
