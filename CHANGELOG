@@ -1,3 +1,8 @@
+# 0.5.2
+
+- Add interactive plotting packages: plotly, DT, and heatmaply
+- List shiny and Gviz explicitly (already installed as dependencies)
+
 # 0.5.1
 
 - Add methylation clock packages: EpigeneticAgePipeline (GitHub, pinned to commit 5fc14f1, as in the separate meclock:0.2.0 image), methylclock, EpiDISH, FlowSorted.Blood.450k, ComplexHeatmap, glmmTMB, and circlize

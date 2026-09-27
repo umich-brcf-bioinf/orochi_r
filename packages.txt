@@ -9,6 +9,7 @@ circlize
 ComplexUpset
 data.table
 devtools
+DT
 e1071
 gamlss
 ggalluvial
@@ -18,17 +19,20 @@ ggpubr
 ggrepel
 glmmTMB
 gplots
+heatmaply
 kableExtra
 knitr
 openxlsx
 optparse
 pals
 pheatmap
+plotly
 randomForest
 RColorBrewer
 rmarkdown
 roxygen2
 rstatix
+shiny
 statmod
 testthat
 tidyverse
@@ -58,6 +62,7 @@ FlowSorted.Blood.450k
 FlowSorted.Blood.EPIC
 FlowSorted.CordBlood.450k
 GO.db
+Gviz
 IlluminaHumanMethylation450kmanifest
 limma
 methylclock
