@@ -1,3 +1,9 @@
+# 0.5.1
+
+- Add methylation clock packages: EpigeneticAgePipeline (GitHub, pinned to commit 5fc14f1, as in the separate meclock:0.2.0 image), methylclock, EpiDISH, FlowSorted.Blood.450k, ComplexHeatmap, glmmTMB, and circlize
+- List broom, data.table, and rstatix explicitly (already installed as dependencies)
+- GitHub packages in packages.txt can be pinned as user/repo@sha
+
 # 0.5.0
 
 - Bioc 3.23 (R 4.6.1)
