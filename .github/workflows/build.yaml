@@ -14,6 +14,10 @@ on:
 
 env:
   DOCKER_REPOSITORY_NAME: umichbfxcore/orochi_r
+  # Released image used by pull requests to check the tag digest lookup below
+  CHECK_TAG: 0.5.0
+  # Don't attach BuildKit's own build record to each run; the package record is uploaded instead
+  DOCKER_BUILD_RECORD_UPLOAD: false
 
 jobs:
   build:
@@ -82,14 +86,38 @@ jobs:
           name: orochi_r-${{ steps.meta.outputs.version }}-packages
           path: record/
 
-      # Record which commit produced which image, so pipelines can pin by digest
-      - name: Record image digest
+      # A pushed tag resolves to an image index (the image plus a provenance attestation).
+      # Its digest is the one to pin in pipelines, so read it from the registry.
+      - name: Record image digests
         if: github.event_name == 'push'
         run: |
+          image="${{ fromJSON(steps.meta.outputs.json).tags[0] }}"
+          tag_digest=$(docker buildx imagetools inspect "$image" --format '{{json .Manifest}}' | jq -r .digest)
           {
             echo "### Pushed image"
             echo ""
             echo "- Tags: \`${{ steps.meta.outputs.tags }}\`"
-            echo "- Digest: \`${{ steps.build.outputs.digest }}\`"
+            echo "- Tag digest (pin with this): \`${tag_digest}\`"
+            echo "- linux/amd64 image digest: \`${{ steps.build.outputs.digest }}\`"
             echo "- Commit: \`${{ github.sha }}\`"
           } >> "$GITHUB_STEP_SUMMARY"
+
+      # On pull requests, check the lookup above against a released tag: it must return
+      # the same digest the registry serves for that tag
+      - name: Check tag digest lookup
+        if: github.event_name == 'pull_request'
+        run: |
+          image="${DOCKER_REPOSITORY_NAME}:${CHECK_TAG}"
+          lookup=$(docker buildx imagetools inspect "$image" --format '{{json .Manifest}}' | jq -r .digest)
+          token=$(curl -s "https://auth.docker.io/token?service=registry.docker.io&scope=repository:${DOCKER_REPOSITORY_NAME}:pull" | jq -r .token)
+          served=$(curl -sI -H "Authorization: Bearer $token" \
+            -H "Accept: application/vnd.oci.image.index.v1+json, application/vnd.docker.distribution.manifest.list.v2+json, application/vnd.oci.image.manifest.v1+json, application/vnd.docker.distribution.manifest.v2+json" \
+            "https://registry-1.docker.io/v2/${DOCKER_REPOSITORY_NAME}/manifests/${CHECK_TAG}" \
+            | tr -d '\r' | awk 'tolower($1) == "docker-content-digest:" {print $2}')
+          echo "lookup: $lookup"
+          echo "served: $served"
+          if [ -z "$lookup" ] || [ "$lookup" != "$served" ]; then
+            echo "Tag digest lookup does not match the registry for $image" >&2
+            exit 1
+          fi
+          echo "Tag digest lookup for \`$image\`: \`$lookup\` (matches the registry)" >> "$GITHUB_STEP_SUMMARY"
