@@ -5,8 +5,8 @@
 pkgs = readLines('/opt/orochi_r/packages.txt')
 pkgs = trimws(sub('#.*', '', pkgs))
 pkgs = pkgs[pkgs != '']
-# GitHub packages are listed as user/repo; the package name is the repo name
-pkgs = basename(pkgs)
+# GitHub packages are listed as user/repo or user/repo@ref; the package name is the repo name
+pkgs = sub('@.*$', '', basename(pkgs))
 
 ok = vapply(pkgs, function(p) suppressPackageStartupMessages(requireNamespace(p, quietly = TRUE)), logical(1))
 

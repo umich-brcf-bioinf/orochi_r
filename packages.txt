@@ -1,17 +1,22 @@
 # R packages installed in the image, one per line. BiocManager::install() takes
-# CRAN and Bioconductor names alike, and GitHub packages as user/repo.
+# CRAN and Bioconductor names alike, and GitHub packages as user/repo, optionally
+# pinned to a commit as user/repo@sha.
 # check.R loads every package listed here and fails the build if any is missing.
 
 # CRAN
+broom
+circlize
 ComplexUpset
+data.table
 devtools
 e1071
 gamlss
-GGally
 ggalluvial
+GGally
 ggfortify
 ggpubr
 ggrepel
+glmmTMB
 gplots
 kableExtra
 knitr
@@ -23,6 +28,7 @@ randomForest
 RColorBrewer
 rmarkdown
 roxygen2
+rstatix
 statmod
 testthat
 tidyverse
@@ -40,17 +46,21 @@ BSgenome.Hsapiens.UCSC.hg38
 BSgenome.Mmusculus.UCSC.mm10
 bsseq
 chipenrich
+ComplexHeatmap
 DelayedArray
 DESeq2
 DMRcate
 DMRcatedata
 edgeR
 ENmix
+EpiDISH
+FlowSorted.Blood.450k
 FlowSorted.Blood.EPIC
 FlowSorted.CordBlood.450k
 GO.db
 IlluminaHumanMethylation450kmanifest
 limma
+methylclock
 methylSig
 minfi
 MLML2R
@@ -74,3 +84,4 @@ TxDb.Rnorvegicus.UCSC.rn6.refGene
 # GitHub
 achilleasNP/IlluminaHumanMethylationEPICmanifest
 achilleasNP/IlluminaHumanMethylationEPICanno.ilm10b5.hg38
+CastellaniLab/EpigeneticAgePipeline@5fc14f1966f426248931cb611a1ef5bca3e6dd73
