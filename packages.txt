@@ -84,7 +84,9 @@ TxDb.Ggallus.UCSC.galGal6.refGene
 TxDb.Hsapiens.UCSC.hg19.knownGene
 TxDb.Hsapiens.UCSC.hg38.knownGene
 TxDb.Mmusculus.UCSC.mm10.knownGene
+TxDb.Mmusculus.UCSC.mm39.knownGene
 TxDb.Rnorvegicus.UCSC.rn6.refGene
+TxDb.Rnorvegicus.UCSC.rn7.refGene
 
 # GitHub
 achilleasNP/IlluminaHumanMethylationEPICmanifest

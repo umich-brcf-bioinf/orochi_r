@@ -1,3 +1,7 @@
+# 0.5.3
+
+- Add TxDb.Mmusculus.UCSC.mm39.knownGene and TxDb.Rnorvegicus.UCSC.rn7.refGene, for annotatr's mm39 and rn7 gene annotations
+
 # 0.5.2
 
 - Add interactive plotting packages: plotly, DT, and heatmaply
