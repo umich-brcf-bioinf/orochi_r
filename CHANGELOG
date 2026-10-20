@@ -1,7 +1,7 @@
 # 0.5.3
 
 - Add TxDb.Mmusculus.UCSC.mm39.knownGene and TxDb.Rnorvegicus.UCSC.rn7.refGene, for annotatr's mm39 and rn7 gene annotations
-- Add BSgenome.Mmusculus.UCSC.mm39 and BSgenome.Rnorvegicus.UCSC.rn7
+- Add BSgenome.Mmusculus.UCSC.mm39, BSgenome.Rnorvegicus.UCSC.rn6, and BSgenome.Rnorvegicus.UCSC.rn7
 - Add chromatin accessibility and motif packages: chromVAR, motifmatchr, TFBSTools, and JASPAR2024
 
 # 0.5.2

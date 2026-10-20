@@ -49,6 +49,7 @@ BSgenome.Hsapiens.UCSC.hg19
 BSgenome.Hsapiens.UCSC.hg38
 BSgenome.Mmusculus.UCSC.mm10
 BSgenome.Mmusculus.UCSC.mm39
+BSgenome.Rnorvegicus.UCSC.rn6
 BSgenome.Rnorvegicus.UCSC.rn7
 bsseq
 chipenrich
